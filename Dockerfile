@@ -1,12 +1,5 @@
-FROM python:3.10-slim
+# Dockerfile
+FROM theyka/turnstile_solver:latest
 
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-EXPOSE 3000 
-
-CMD ["python", "main.py", "--mode", "api", "--port", "3000"]
+ENV TZ=Africa/Lagos
+EXPOSE 8080
