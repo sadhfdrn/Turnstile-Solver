@@ -7,13 +7,14 @@ async def run_server():
     # Get port from Koyeb's environment variable
     port = int(os.getenv('PORT', 8000))
     
-    # Create the app
+    # Create the app with all required parameters
     app = create_app(
         debug=False,
         headless=True,  # Must run headless on Koyeb
-        useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         browser_type="chromium",
-        thread=1
+        thread=1,
+        proxy_support=False  # This was missing!
     )
     
     # Configure Hypercorn to bind to 0.0.0.0 and Koyeb's PORT
@@ -24,4 +25,4 @@ async def run_server():
     await hypercorn.asyncio.serve(app, config)
 
 if __name__ == "__main__":
-    asyncio.run(run_server()) 
+    asyncio.run(run_server())
