@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
     libgtk-3-0 libnspr4 libnss3 libx11-xcb1 libx11-6 libxcomposite1 libxdamage1 \
     libxext6 libxfixes3 libxrandr2 libxrender1 libxshmfence1 libxss1 libxtst6 \
     libpango-1.0-0 libegl1 libglib2.0-0 libfontconfig1 libfreetype6 libpng16-16 \
-    libicu72 \
+    libicu71 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
@@ -34,4 +34,4 @@ EXPOSE 7860
 ENV TZ=Africa/Lagos
 
 # Start the app
-CMD ["python", "koyeb_start.py"]
+CMD ["python", "koyeb_start.py"] 
