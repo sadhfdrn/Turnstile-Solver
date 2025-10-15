@@ -1,4 +1,5 @@
 quart
+python-dotenv
 asyncio
 argparse
 patchright
